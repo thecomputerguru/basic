@@ -31,9 +31,9 @@ _get_path(void)
 arch_load(char* name, arch_load_out_cb cb, void* context)
 {
   char* filename;
-  asprintf(&filename, "%s/%s.bas", _get_path(), name);
+  asprintf(&filename, "%s/%s", _get_path(), name);
   FILE* fp = fopen(filename, "r");
-  if(!fp){
+  if(fp == NULL){
     return 1;
   }
   char line[256];
