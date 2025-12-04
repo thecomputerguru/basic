@@ -37,7 +37,7 @@ void delay_ms(uint16_t count) {
 
 #include "usingwin.h"
 
-char *_dummy = 0;
+static char _dummy = 0;
 
 /*
   line = [number] statement [ : statement ] CR
@@ -2066,10 +2066,6 @@ int do_sleep(basic_type* delay, basic_type* rv)
   nanosleep(&ts, NULL);
 
 #endif
-  struct timespec ts;
-  ts.tv_sec = milliseconds / 1000;
-  ts.tv_nsec = (milliseconds % 1000) * 1000000;
-  nanosleep(&ts, NULL);
 #endif
 
   rv->kind = kind_numeric;

@@ -132,13 +132,14 @@ token _find_registered(void)
 
 token tokenizer_get_next_token(void)
 {
-  if ( ! *tokenizer_p ) {
+  if ( tokenizer_p == NULL || *tokenizer_p == '\0') {
     return T_EOF;
   } 
 
   // Skip white space
   while ( *tokenizer_p && isspace(*tokenizer_p) ) {
     tokenizer_p++;
+    //printf("%s\n",tokenizer_p);
   } 
 
   // Check for number
@@ -162,9 +163,9 @@ token tokenizer_get_next_token(void)
     number[l] = '\0';
     tokenizer_p = tokenizer_next_p;
     float f;
-    // printf("[%s]\n", number);
+    //printf("[%s]\n", number);
     sscanf(number, "%f", &f);
-    // printf("Got float: '%f'\n", f);
+    //printf("Got float: '%f'\n", f);
     tokenizer_actual_number = f;
 
 #ifdef _WIN32
