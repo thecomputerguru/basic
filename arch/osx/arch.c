@@ -31,7 +31,15 @@ _get_path(void)
 arch_load(char* name, arch_load_out_cb cb, void* context)
 {
   char* filename;
-  asprintf(&filename, "%s/%s", _get_path(), name);
+  char* file_extension = strrchr(name, '.');
+  if((file_extension == NULL) || (strcmp(file_extension,".bas") != 0))
+  {
+    asprintf(&filename, "%s/%s.bas", _get_path(), name);
+  }
+  else
+  {
+    asprintf(&filename, "%s/%s", _get_path(), name);
+  }
   FILE* fp = fopen(filename, "r");
   if(fp == NULL){
     return 1;
@@ -50,7 +58,16 @@ arch_save(char* name, arch_save_cb cb, void* context)
 {
   char* line;
   char* filename;
-  asprintf(&filename, "%s/%s.bas", _get_path(), name);
+  
+  char* file_extension = strrchr(name, '.');
+  if((file_extension == NULL) || (strcmp(file_extension,".bas") != 0))
+  {
+    asprintf(&filename, "%s/%s.bas", _get_path(), name);
+  }
+  else
+  {
+    asprintf(&filename, "%s/%s", _get_path(), name);
+  }
  
   FILE* fp = fopen(filename, "w"); 
   if(!fp){
@@ -101,7 +118,15 @@ arch_dir(arch_dir_out_cb cb, void* context)
   int
 arch_delete(char* name){
   char* filename;
-  asprintf(&filename, "%s/%s.bas", _get_path(), name);
+  char* file_extension = strrchr(name, '.');
+  if((file_extension == NULL) || (strcmp(file_extension,".bas") != 0))
+  {
+    asprintf(&filename, "%s/%s.bas", _get_path(), name);
+  }
+  else
+  {
+    asprintf(&filename, "%s/%s", _get_path(), name);
+  }
   remove(filename);
   free(filename);
   return 0;
