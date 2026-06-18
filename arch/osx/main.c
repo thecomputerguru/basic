@@ -48,12 +48,9 @@ int in(void)
 
 void repl(void)
 {
-  puts(" _               _      ");
-  puts("| |__   __ _ ___(_) ___ ");
-  puts("| '_ \\ / _` / __| |/ __|");
-  puts("| |_) | (_| \\__ \\ | (__ ");
-  puts("|_.__/ \\__,_|___/_|\\___|");
-  puts("(c) 2015-2016 Johan Van den Brande");
+  printf("BASIC INTERPRETER\n");
+  printf("(c) 2015-2016 Johan Van den Brande");
+  printf("\n\n");
 
   using_history();
  
