@@ -48,6 +48,7 @@ int in(void)
 
 void repl(void)
 {
+  printf("\033[2J\033[H");
   printf("BASIC INTERPRETER\n");
   printf("(c) 2015-2016 Johan Van den Brande");
   printf("\n\n");
