@@ -1,0 +1,16 @@
+-- Creating basic...
+CC ./arch/osx/arch.c
+CC ./arch/osx/error.c
+CC ./arch/osx/kbhit.c
+CC ./arch/osx/main.c
+CC ./src/array.c
+CC ./src/dictionary.c
+CC ./src/hexdump.c
+CC ./src/io.c
+CC ./src/lines.c
+CC ./src/parser.c
+CC ./src/tokenizer.c
+CC ./src/variables.c
+LD basic
+done
+
